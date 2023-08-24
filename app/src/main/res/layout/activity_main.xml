@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:scaleType="fitXY"
+        android:src="@mipmap/demo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:layout_marginLeft="24dp"
+        android:src="@mipmap/logo"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="64dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="#2A3155"
+            android:layout_marginBottom="32dp"
+            android:text="新一代应用内调研工具"
+            android:textSize="28sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/edit"
+            android:textColor="#2A3155"
+            android:textColorHint="#802A3155"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:gravity="center"
+            android:hint="输入问卷id"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="48dp"/>
+        <RelativeLayout
+            android:id="@+id/button"
+            android:background="#0089FF"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <TextView
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:text="显示问卷"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,3 @@
+rootProject.name = "npsmeter"
+include ':app'
+include ':npsmetersdk'

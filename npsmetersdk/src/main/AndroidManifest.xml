@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.npsmeter.sdk">
+
+    <!-- 添加联网权限   -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>
