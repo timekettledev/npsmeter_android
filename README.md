@@ -4,6 +4,10 @@
 
 # 版本  1.19.3
 
+[![](https://jitpack.io/v/timekettledev/npsmeter_android.svg)](https://jitpack.io/#timekettledev/npsmeter_android)
+![GitHub top language](https://img.shields.io/github/languages/top/timekettledev/npsmeter_android)
+
+
 ## 集成SDK
 
 #### 1. 添加maven仓库地址
@@ -19,7 +23,7 @@ allprojects {
 
 #### 2. 引入最新依赖
 ```gradle
-implementation 'com.github.timekettledev:npsmeter_android:1.2'
+implementation 'com.github.timekettledev:npsmeter_android:x.x'
 ```
 
 ## 调起问卷
