@@ -4,6 +4,24 @@
 
 # 版本  1.19.3
 
+## 集成SDK
+
+#### 1. 添加maven仓库地址
+```gradle
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+```
+
+#### 2. 引入最新依赖
+```gradle
+implementation 'com.github.timekettledev:npsmeter_android:v1.1'
+```
+
 ## 调起问卷
 
 ```
