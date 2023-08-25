@@ -23,7 +23,7 @@ allprojects {
 
 #### 2. 引入最新依赖
 ```gradle
-implementation 'com.github.timekettledev:npsmeter_android:x.x'
+implementation 'com.github.timekettledev:npsmeter_android:$jitpack_version'
 ```
 
 ## 调起问卷
