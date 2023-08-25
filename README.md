@@ -19,7 +19,7 @@ allprojects {
 
 #### 2. 引入最新依赖
 ```gradle
-implementation 'com.github.timekettledev:npsmeter_android:v1.1'
+implementation 'com.github.timekettledev:npsmeter_android:1.2'
 ```
 
 ## 调起问卷
