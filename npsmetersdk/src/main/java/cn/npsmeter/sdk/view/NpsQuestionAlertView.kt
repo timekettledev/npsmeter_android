@@ -180,6 +180,7 @@ class NpsQuestionAlertView : DialogFragment() {
                         this.answer(rating, null)
                     }
             }
+
             "ces" -> {
                 this.questionView =
                     NpsMeterNpsView(
@@ -192,6 +193,7 @@ class NpsQuestionAlertView : DialogFragment() {
                         this.answer(rating, null)
                     }
             }
+
             "select" -> {
                 this.questionView =
                     NpsMeterSelectView(question,
@@ -206,6 +208,7 @@ class NpsQuestionAlertView : DialogFragment() {
                             this.answer(null, arrayOf(text))
                         })
             }
+
             "checkbox" -> {
                 this.questionView =
                     NpsMeterSelectView(question,
@@ -219,12 +222,14 @@ class NpsQuestionAlertView : DialogFragment() {
                         }, selectResult = {
                         })
             }
+
             "text" -> {
                 this.questionView =
                     NpsMeterTextView(question, this.mContext, this.config) { canSubmit ->
                         this.changeSubmitButton(canSubmit)
                     }
             }
+
             "face" -> {
                 this.questionView =
                     PicQuestionView(question, this.mContext, this.config) { value ->
@@ -313,14 +318,16 @@ class NpsQuestionAlertView : DialogFragment() {
 
                             val bitmap: Bitmap? = ThanksIconManager.getImage(config)
                             if (bitmap != null) {
-                                NpsIconThanksDialog.newInstance(config, bitmap).apply { }
+                                NpsIconThanksDialog.newInstance(config, bitmap, this.closeAction)
+                                    .apply { }
                                     .show(manager, "")
                             } else {
-                                ThanksDialog.newInstance(config).apply { }.show(manager, "")
+                                ThanksDialog.newInstance(config, this.closeAction).apply { }
+                                    .show(manager, "")
                             }
                             showUserClose = false
                             this.dismiss()
-                            this.closeAction(NPSCloseType.Finish)
+//                            this.closeAction(NPSCloseType.Finish)
                         } else {
                             if (questionModel.canShow()) {
                                 newInstance(

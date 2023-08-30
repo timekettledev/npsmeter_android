@@ -15,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
+import cn.npsmeter.sdk.NPSCloseType
 import cn.npsmeter.sdk.R
 import cn.npsmeter.sdk.api.ConfigResponseModel
 import kotlin.math.min
@@ -23,6 +24,7 @@ class ThanksDialog : DialogFragment() {
     private lateinit var config: ConfigResponseModel.ConfigModel
     private lateinit var mContext: Context
     private lateinit var sceneView: View
+    private var closeAction: ((NPSCloseType) -> Unit)? = null
     lateinit var textView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,7 +57,7 @@ class ThanksDialog : DialogFragment() {
         val linearParams = this.textView.layoutParams
         this.textView.layoutParams = linearParams
 
-        val redView:View = view.findViewById(R.id.red)
+        val redView: View = view.findViewById(R.id.red)
         redView.setBackgroundColor(config.primaryColor())
 
         this.startAnimation(dm, linearParams.height)
@@ -63,27 +65,13 @@ class ThanksDialog : DialogFragment() {
     }
 
 
-    private fun getHeight(text: String, width: Int): StaticLayout {
-        val myTextPaint = TextPaint()
-        myTextPaint.isAntiAlias = true
-        myTextPaint.textSize = 6F * resources.displayMetrics.density
-        val resources: Resources = this.resources
-        val dm: DisplayMetrics = resources.displayMetrics
-
-        return StaticLayout.Builder.obtain(
-            text,
-            0,
-            text.length,
-            myTextPaint,
-            width
-        ).setLineSpacing((1.0*dm.density).toFloat(), 1.0F).build()
-    }
-
     private fun startAnimation(dm: DisplayMetrics, height: Int) {
-        val objectAnimator = ObjectAnimator.ofFloat(this.sceneView,
+        val objectAnimator = ObjectAnimator.ofFloat(
+            this.sceneView,
             "translationY",
             dm.heightPixels.toFloat(),
-            dm.heightPixels.toFloat()/2 -height/2)
+            dm.heightPixels.toFloat() / 2 - height / 2
+        )
         objectAnimator.duration = 300
         objectAnimator.addListener(object : Animator.AnimatorListener {
             override fun onAnimationStart(animation: Animator) {}
@@ -101,8 +89,10 @@ class ThanksDialog : DialogFragment() {
 
     // 弹窗消失的动画
     fun outAnimation(dm: DisplayMetrics, height: Int) {
-        val objectAnimator = ObjectAnimator.ofFloat(this.sceneView,
-            "alpha", 1f,0f)
+        val objectAnimator = ObjectAnimator.ofFloat(
+            this.sceneView,
+            "alpha", 1f, 0f
+        )
         objectAnimator.duration = 200
         objectAnimator.startDelay = 1500
         objectAnimator.addListener(object : Animator.AnimatorListener {
@@ -111,6 +101,7 @@ class ThanksDialog : DialogFragment() {
             override fun onAnimationEnd(animation: Animator) {
                 dismiss()
             }
+
             override fun onAnimationCancel(animation: Animator) {}
             override fun onAnimationRepeat(animation: Animator) {}
         })
@@ -121,11 +112,19 @@ class ThanksDialog : DialogFragment() {
     companion object {
         fun newInstance(
             configModel: ConfigResponseModel.ConfigModel,
+            closeAction: ((NPSCloseType) -> Unit)?
         ): ThanksDialog {
             return ThanksDialog().apply {
                 config = configModel
+                this.closeAction = closeAction
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        closeAction?.invoke(NPSCloseType.Finish)
+        closeAction = null
     }
 }
 

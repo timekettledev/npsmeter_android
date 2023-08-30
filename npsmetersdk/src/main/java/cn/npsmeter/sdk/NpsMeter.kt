@@ -15,7 +15,8 @@ enum class NPSCloseType {
     FirstDay,
     RequestAnswerError,
     OtherError,
-    AppCancel
+    AppCancel,
+//    AllDone  // 所有操作全部显示完成
 }
 
 

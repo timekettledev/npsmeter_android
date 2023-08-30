@@ -16,6 +16,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
+import cn.npsmeter.sdk.NPSCloseType
 import cn.npsmeter.sdk.R
 import cn.npsmeter.sdk.api.ConfigResponseModel
 import kotlin.math.min
@@ -26,6 +27,7 @@ class NpsIconThanksDialog : DialogFragment() {
     private lateinit var sceneView: View
     lateinit var textView: TextView
     private lateinit var bitmap: Bitmap
+    private var closeAction: ((NPSCloseType) -> Unit)? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -140,12 +142,22 @@ class NpsIconThanksDialog : DialogFragment() {
     companion object {
         fun newInstance(
             configModel: ConfigResponseModel.ConfigModel,
-            bitmapImage: Bitmap
+            bitmapImage: Bitmap,
+            closeAction: ((NPSCloseType) -> Unit)?
+
         ): NpsIconThanksDialog {
             return NpsIconThanksDialog().apply {
                 config = configModel
                 bitmap = bitmapImage
+                this.closeAction = closeAction
             }
         }
+    }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        closeAction?.invoke(NPSCloseType.Finish)
+        closeAction = null
     }
 }
