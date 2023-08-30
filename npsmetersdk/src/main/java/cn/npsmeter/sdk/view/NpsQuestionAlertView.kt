@@ -308,7 +308,7 @@ class NpsQuestionAlertView : DialogFragment() {
                     this.progressBar.visibility = View.GONE
                     if (questionModel != null) {
 
-                        val manager = fragmentManager!!
+                        val manager = requireFragmentManager()
                         if (questionModel.is_complete == 1) {//已经结束，展示感谢
 
                             val bitmap: Bitmap? = ThanksIconManager.getImage(config)

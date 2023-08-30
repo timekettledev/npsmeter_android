@@ -2,6 +2,7 @@ package cn.npsmeter.sdk.view
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
+import android.app.Dialog
 import android.content.Context
 import android.content.res.Resources
 import android.os.Bundle
@@ -45,20 +46,13 @@ class ThanksDialog : DialogFragment() {
         }
         val view = inflater.inflate(R.layout.layout_thanks_nps, container, false)
         this.dialog?.window?.setDimAmount(0f)//去除遮罩问题
+        this.dialog?.setCancelable(false)//设置不可取消
         this.sceneView = view.findViewById(R.id.sun)
         this.textView = view.findViewById(R.id.text)
         this.textView.text = config.thanks_fields
         this.textView.setTextColor(config.textColor())
         val dm: DisplayMetrics = resources.displayMetrics
-
-        val paint: TextPaint = this.textView.paint
-        val screenWidth = dm.widthPixels / dm.density
-        val width = screenWidth - 178
         val linearParams = this.textView.layoutParams
-        val layout = this.getHeight(config.thanks_fields, width.toInt())
-//        linearParams.width = min((layout.width * dm.density).toInt(),
-//            Layout.getDesiredWidth(config.thanks_fields, 0, config.thanks_fields.length, paint).toInt())
-//        linearParams.height = (layout.height * dm.density).toInt()
         this.textView.layoutParams = linearParams
 
         val redView:View = view.findViewById(R.id.red)
@@ -67,6 +61,7 @@ class ThanksDialog : DialogFragment() {
         this.startAnimation(dm, linearParams.height)
         return view
     }
+
 
     private fun getHeight(text: String, width: Int): StaticLayout {
         val myTextPaint = TextPaint()
@@ -106,13 +101,10 @@ class ThanksDialog : DialogFragment() {
 
     // 弹窗消失的动画
     fun outAnimation(dm: DisplayMetrics, height: Int) {
-//        val objectAnimator = ObjectAnimator.ofFloat(this.sceneView,
-//            "translationY", dm.heightPixels.toFloat() - 41 * dm.density - height, dm.heightPixels.toFloat())
-
         val objectAnimator = ObjectAnimator.ofFloat(this.sceneView,
             "alpha", 1f,0f)
         objectAnimator.duration = 200
-        objectAnimator.startDelay = 1000
+        objectAnimator.startDelay = 1500
         objectAnimator.addListener(object : Animator.AnimatorListener {
             override fun onAnimationStart(animation: Animator) {}
 
