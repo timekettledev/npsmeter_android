@@ -22,12 +22,12 @@ class MainActivity : AppCompatActivity() {
         this.button.setOnClickListener {
             NpsMeter.show(
                     this.editText.text.toString(),
-                    null,
-                    null,
-                    "098765",
+                    "Android Demo ID 1",
+                    "Android Demo licoba",
+                    "Android Demo Remark ",
                     supportFragmentManager,
                     baseContext,
-                    300,
+                    0,
                     {
                         val ts = Toast.makeText(baseContext, "展示问卷", Toast.LENGTH_SHORT)
                         ts.show()
@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
                             NPSCloseType.Finish -> {
                                 val ts = Toast.makeText(baseContext, "完成问卷", Toast.LENGTH_SHORT)
                                 ts.show()
+//                                finish()
                             }
                             NPSCloseType.User -> {
                                 val ts = Toast.makeText(baseContext, "用户关闭", Toast.LENGTH_SHORT)
@@ -80,6 +81,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        this.editText.setText("cae633051b779a4c")
+//        this.editText.setText("cae633051b779a4c")  // 官方Demo
+        this.editText.setText("caa5ca97e21ac279")  // 官方Demo
+
     }
 }

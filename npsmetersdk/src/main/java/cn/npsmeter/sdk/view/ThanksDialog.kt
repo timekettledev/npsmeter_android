@@ -56,9 +56,9 @@ class ThanksDialog : DialogFragment() {
         val width = screenWidth - 178
         val linearParams = this.textView.layoutParams
         val layout = this.getHeight(config.thanks_fields, width.toInt())
-        linearParams.width = min((layout.width * dm.density).toInt(),
-            Layout.getDesiredWidth(config.thanks_fields, 0, config.thanks_fields.length, paint).toInt())
-        linearParams.height = (layout.height * dm.density).toInt()
+//        linearParams.width = min((layout.width * dm.density).toInt(),
+//            Layout.getDesiredWidth(config.thanks_fields, 0, config.thanks_fields.length, paint).toInt())
+//        linearParams.height = (layout.height * dm.density).toInt()
         this.textView.layoutParams = linearParams
 
         val redView:View = view.findViewById(R.id.red)
@@ -104,11 +104,15 @@ class ThanksDialog : DialogFragment() {
         objectAnimator.start()
     }
 
+    // 弹窗消失的动画
     fun outAnimation(dm: DisplayMetrics, height: Int) {
+//        val objectAnimator = ObjectAnimator.ofFloat(this.sceneView,
+//            "translationY", dm.heightPixels.toFloat() - 41 * dm.density - height, dm.heightPixels.toFloat())
+
         val objectAnimator = ObjectAnimator.ofFloat(this.sceneView,
-            "translationY", dm.heightPixels.toFloat() - 41 * dm.density - height, dm.heightPixels.toFloat())
+            "alpha", 1f,0f)
         objectAnimator.duration = 200
-        objectAnimator.startDelay = 2000
+        objectAnimator.startDelay = 1000
         objectAnimator.addListener(object : Animator.AnimatorListener {
             override fun onAnimationStart(animation: Animator) {}
 
