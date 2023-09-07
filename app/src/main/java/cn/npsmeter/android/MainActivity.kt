@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
                         NPSCloseType.Finish -> {
                             val ts = Toast.makeText(baseContext, "完成问卷", Toast.LENGTH_SHORT)
                             ts.show()
-                            finish()
                         }
 
                         NPSCloseType.User -> {
@@ -99,8 +98,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-//        this.editText.setText("cae633051b779a4c")  // 官方Demo
-        this.editText.setText("caa5ca97e21ac279")  // 官方Demo
+        this.editText.setText("4c629f862336c4d2")  // W3 Android
+//        this.editText.setText("caa5ca97e21ac279")  // 官方Demo
 
     }
 }
