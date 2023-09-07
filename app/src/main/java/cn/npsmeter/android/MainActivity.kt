@@ -98,8 +98,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        this.editText.setText("4c629f862336c4d2")  // W3 Android
-//        this.editText.setText("caa5ca97e21ac279")  // 官方Demo
+        this.editText.setText("74bdeb2ad23c2433")  // 测试问卷
 
     }
 }
