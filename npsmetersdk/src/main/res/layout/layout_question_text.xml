@@ -10,7 +10,7 @@
         android:layout_marginBottom="12dp"
         android:layout_width="match_parent"
         android:padding="5dp"
-        android:hint="请输入文字"
+        android:hint="@string/nps_please_enter_text"
         android:gravity="top"
         android:layout_height="match_parent"/>
 

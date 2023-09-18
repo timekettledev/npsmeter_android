@@ -3,4 +3,5 @@
     <string name="app_name">NPSMeter SDK</string>
     <string name="nps_please_enter_text">Please enter text</string>
     <string name="nps_submit">Submit</string>
+
 </resources>

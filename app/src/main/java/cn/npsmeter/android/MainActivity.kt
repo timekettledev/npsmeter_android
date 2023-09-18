@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        this.editText.setText("74bdeb2ad23c2433")  // 测试问卷
+        this.editText.setText("e79050267e0eb679")  // 测试问卷
 
     }
 }
