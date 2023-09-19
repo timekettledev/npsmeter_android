@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="nps_please_enter_text">请输入文字</string>
+    <string name="nps_please_enter_text">請輸入文字</string>
     <string name="nps_submit">提交</string>
 </resources>

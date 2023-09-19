@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">NPSMeter SDK</string>
     <string name="nps_please_enter_text">Please enter the text</string>
     <string name="nps_submit">Submit</string>
-
 </resources>
