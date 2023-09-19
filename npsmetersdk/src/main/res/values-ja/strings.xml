@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">NPSMeter SDK</string>
-    <string name="nps_please_enter_text">テキストを入力してください</string>
-    <string name="nps_submit">送  信</string>
+    <string name="nps_please_enter_text">文字を入力してください</string>
+    <string name="nps_submit">提出する</string>
 
 </resources>

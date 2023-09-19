@@ -37,5 +37,5 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation project(path: ':npsmetersdk')
-//    implementation 'com.github.timekettledev:npsmeter_android:1.4'  // 远程的依赖
+//    implementation 'com.github.timekettledev:npsmeter_android:1.5'  // 远程的依赖
 }
